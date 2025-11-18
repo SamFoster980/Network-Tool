@@ -1,0 +1,93 @@
+/* Clean, Polinode-ish minimal styling */
+:root{
+  --bg: #f6f8fa;
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --accent: #3a86ff; 
+  --danger: #ff4d4f;  
+  --card-shadow: 0 8px 20px rgba(16,24,40,0.06);
+  --text: #111827;
+  --radius: 8px;
+}
+
+*{box-sizing:border-box}
+html,body,#networkSvg{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.app{display:flex;height:100vh;}
+
+/* Sidebar */
+.sidebar{
+  width:320px;
+  padding:20px;
+  background:var(--panel);
+  border-right:1px solid #e6e9ee;
+  box-shadow: var(--card-shadow);
+  display:flex;flex-direction:column;
+  gap:14px;
+}
+
+.brand h1{margin:0;font-size:18px}
+.brand .muted{margin:4px 0 0;color:var(--muted);font-size:12px}
+
+.controls{flex:1; overflow:auto;padding-right:6px}
+.controls h3{margin:12px 0 8px;font-size:13px}
+.controls label{display:block;margin-top:8px;font-size:12px;color:var(--muted)}
+.controls input, .controls select{
+  width:100%;
+  padding:8px 10px;
+  border-radius:8px;
+  border:1px solid #e5e7eb;
+  margin-top:6px;
+  font-size:14px;
+  background:#fff;
+}
+.controls button{
+  display:inline-block;
+  margin-top:10px;
+  padding:9px 12px;
+  border-radius:8px;
+  border:0;
+  cursor:pointer;
+  font-weight:600;
+  font-size:13px;
+}
+button.primary{background:var(--accent);color:#fff}
+button.danger{background:var(--danger);color:#fff}
+.filters{display:flex;gap:8px;margin-top:8px}
+.filter{flex:1;padding:8px;border-radius:8px;border:1px solid #e5e7eb;background:#fff;cursor:pointer}
+.filter:hover{background:#f3f6ff}
+
+/* small helpers */
+.file-label{display:block;margin-top:10px;font-size:13px;color:var(--muted)}
+.muted{color:var(--muted);font-size:12px;margin-top:12px}
+
+/* Main area */
+.main{flex:1;display:flex;align-items:stretch}
+#canvasWrap{flex:1;position:relative;padding:18px}
+#networkSvg{width:100%;height:100%;background:linear-gradient(180deg,#ffffff 0%, #fbfdff 100%);border-radius:12px;border:1px solid #e6edf3;}
+
+/* Graph styles */
+.link{stroke:#9aa4b2; stroke-opacity:0.6; fill:none; stroke-width:1.6}
+.node circle{stroke:#fff;stroke-width:1.6}
+.node text{font-size:13px; fill:#111827}
+.tooltip{
+  position:absolute;
+  pointer-events:none;
+  background: rgba(17,24,39,0.95);
+  color:white;
+  padding:8px 10px;border-radius:8px;
+  font-size:13px; z-index:10;
+  box-shadow: 0 8px 20px rgba(16,24,40,0.2);
+}
+
+/* responsive small screens */
+@media (max-width:900px){
+  .sidebar{width:260px}
+}
